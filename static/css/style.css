@@ -22,6 +22,10 @@ header {
     padding-top: 12px;
 }
 
+footer {
+    width: 100%;
+}
+
 #ci-logo {
     padding: 0;
 }
@@ -102,8 +106,8 @@ form label {
 }
 
 input[type=number]:not(.browser-default) {
-    width: 35px;
-    text-align: right;
+    width: 50px;
+    text-align: center;
     margin: 0 4px;
 }
 
@@ -113,7 +117,7 @@ strong {
 }
 
 small strong {
-    margin: 0 14px;
+    margin: 0 24px;
     font-weight: normal;
     font-size: 12px;
 }
