@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@font-face {font-family: "google-sans"; src: url("../fonts/GoogleSans-Regular.ttf") format("truetype");}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #F2E9E6;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+header {
+    padding-top: 12px;
+}
+
+#ci-logo {
+    padding: 0;
+}
+
+.ci-logo {
+    height: 160px;
+    border-radius: 8px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.card {
+    border-radius: 8px;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+.card-panel {
+    margin: 0 auto;
+}
+
+#form-title .card {
+    border: 0;
+    border-top-color: #7C2509;
+    border-top-style: solid;
+    border-top-width: 10px;
+}
+
+#form-title span {
+    font-size: 32px;
+    line-height: 135%;
+    font-family: "google-sans", "Roboto", Helvetica, Arial, sans-serif;
+}
+
+form label {
+    font-family: "google-sans", "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #212121;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: .1px;
+}
+
+#feedback-form .col {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#feedback-form .card p small {
+    line-height: 16px;
+}
+
+#feedback-form .card p {
+    margin-top: 4px;
+    margin-bottom: 20px;
+    line-height: 16px;
+}
+
+#feedback-form .card p label span {
+    font-size: 14px;
+}
+
+[type="radio"]+span:before, [type="radio"]+span:after {
+    width: 20px;
+    height: 20px;
+}
+
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:before,
+[type="radio"].with-gap:checked+span:after {
+    border: 2px solid #7C2509;
+}
+
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:after {
+    background-color: #7C2509;
+}
+
+input[type=number]:not(.browser-default) {
+    width: 35px;
+    text-align: right;
+    margin: 0 4px;
+}
+
+strong {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+small strong {
+    margin: 0 14px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+input[type=email]:not(.browser-default).invalid ~ .helper-text[data-error],
+input[type=email]:not(.browser-default).invalid ~ .helper-text::after,
+input[type=text]:not(.browser-default).invalid ~ .helper-text[data-error],
+input[type=text]:not(.browser-default).invalid ~ .helper-text::after,
+textarea.materialize-textarea.invalid ~ .helper-text[data-error],
+textarea.materialize-textarea.invalid ~ .helper-text::after {
+    color: #D93025;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .3px;
+    line-height: 16px;
+}
+
+@media only screen and (min-width: 993px) {
+    input[type=email]:not(.browser-default),
+    input[type=text]:not(.browser-default) {
+        width: 75%;
+    }
+}
