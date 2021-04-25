@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="row left-align" id="form-title">
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <span class="grey-text text-darken-4">
+                Code Institute - Mentor Session<br>Feedback
+            </span>
+            <br><br>
+            <p class="red-text text-darken-3">* Required</p>
+        </div>
+    </div>
+</div>
+
+
+<form action="{% url 'mentor_form' %}" method="POST" enctype="multipart/form-data" id="feedback-form" class="row left-align">
+    {% csrf_token %}
+
+    <!-- mentor email -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="mentor_email">
+                Email address
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <br><br>
+            <input type="email" class="validate" name="mentor_email" placeholder="Your email address" required>
+            <br>
+            <span class="helper-text" data-error="This is a required question"></span>
+        </div>
+    </div>
+
+    <!-- date of session -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="session_date">
+                Date of Session
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <br><br>
+            <input type="text" class="datepicker validate" name="session_date"
+                placeholder="dd/mm/yyyy" pattern="^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$" required>
+            <br>
+            <span class="helper-text" data-error="Please match the required format (dd/mm/yyyy)"></span>
+        </div>
+    </div>
+
+    <!-- student email -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="student_email">
+                Your Student's Email Address
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <input type="email" class="validate" name="student_email" placeholder="Your answer" required>
+            <br>
+            <span class="helper-text" data-error="This is a required question"></span>
+        </div>
+    </div>
+
+    <!-- session type -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="session_type">
+                Session Type
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <p>
+                <small>
+                    Choose more than one if the session that took place spanned multiple aspects. Alternatively, please
+                    choose the ""**No-show**" option if the the student failed to show up after 15 minutes or cancelled
+                    the session with a short notice on the same day, without a satisfactory reason, and such that the
+                    time slot was not taken by another student. You should then bill us as if a 15 minute session had
+                    taken place and provide any additional information for Student Care to deal with the situation.
+                </small>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="Intro" type="radio" required>
+                    <span>Intro</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="Project inception" type="radio">
+                    <span>Project inception</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="Middle of project" type="radio">
+                    <span>Middle of project</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="End of project" type="radio">
+                    <span>End of project</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="Interview preparation and career advice" type="radio">
+                    <span>Interview preparation and career advice</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="Postponed (Valid Reason)" type="radio">
+                    <span>Postponed (Valid Reason)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="**No-show**" type="radio">
+                    <span>**No-show**</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_type" value="Other" type="radio">
+                    <span>Other</span>
+                </label>
+            </p>
+        </div>
+    </div>
+
+    <!-- project focus -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="project_focus">
+                Which project was the session focused on?
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <p>
+                <small>
+                    If this session was focused on a project please select which project.
+                    Any student on DISDE should be under the Portfolio Projects (PP)
+                </small>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="Intro/Interview" type="radio" required>
+                    <span>Intro/Interview</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="User Centric Front End Development (MS1)" type="radio">
+                    <span>User Centric Front End Development (MS1)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="Interactive Front End Development (MS2)" type="radio">
+                    <span>Interactive Front End Development (MS2)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="Data Centric Development (MS3)" type="radio">
+                    <span>Data Centric Development (MS3)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="Full Stack Frameworks with Django (MS4)" type="radio">
+                    <span>Full Stack Frameworks with Django (MS4)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="HTML/CSS Essentials (PP1)" type="radio">
+                    <span>HTML/CSS Essentials (PP1)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="JavaScript Essentials (PP2)" type="radio">
+                    <span>JavaScript Essentials (PP2)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="Python Essentials (PP3)" type="radio">
+                    <span>Python Essentials (PP3)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="Full Stack Toolkit (PP4)" type="radio">
+                    <span>Full Stack Toolkit (PP4)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="project_focus" value="eCommerce (PP5)" type="radio">
+                    <span>eCommerce (PP5)</span>
+                </label>
+            </p>
+        </div>
+    </div>
+
+    <!-- session duration -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="session_length_hr">
+                Session Duration
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <br><br>
+            <small> <strong>Hrs</strong> <strong>Min</strong> <strong>Sec</strong></small>
+            <br>
+            <input type="number" min="0" max="23" value="0" class="validate" name="session_length_hr" required>
+            <strong>:</strong>
+            <input type="number" min="0" max="59" value="0" class="validate" name="session_length_min" required>
+            <strong>:</strong>
+            <input type="number" min="0" max="59" value="0" class="validate" name="session_length_sec" required>
+        </div>
+    </div>
+
+    <!-- student progress -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="student_progress">
+                What is your general feeling on the student's progress so far?
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <br><br>
+            <p>
+                <label>
+                    <input class="with-gap" name="student_progress" value="Excellent - It's going great." type="radio" required>
+                    <span>Excellent - It's going great.</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="student_progress" value="Average - The student is moving at an acceptable pace." type="radio">
+                    <span>Average - The student is moving at an acceptable pace.</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="student_progress" value="I'm worried about this student's progress." type="radio">
+                    <span>I'm worried about this student's progress.</span>
+                </label>
+            </p>
+        </div>
+    </div>
+
+    <!-- mentor notes -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="mentor_notes">
+                What did you cover on the session?
+                <span class="red-text text-darken-3">*</span>
+            </label>
+            <p>
+                <small>
+                    Please provide a summary of at least one full sentence.
+                </small>
+            </p>
+            <textarea class="validate materialize-textarea" name="mentor_notes" minlength="25"
+                placeholder="Your answer" required></textarea>
+            <br>
+            <span class="helper-text" data-error="This is a required question"></span>
+        </div>
+    </div>
+
+    <!-- session follow-up -->
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <label for="session_follow_up">
+                Would you like a follow up on this session?
+            </label>
+            <br><br>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_follow_up" value="Yes" type="radio" required>
+                    <span>Yes</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input class="with-gap" name="session_follow_up" value="No" type="radio">
+                    <span>No</span>
+                </label>
+            </p>
+        </div>
+    </div>
+
+    <!-- submit -->
+    <div class="col s12 offset-m2">
+        <button class="btn red darken-4" type="submit">Submit</button>
+    </div>
+
+</form>
+
+{% endblock %}

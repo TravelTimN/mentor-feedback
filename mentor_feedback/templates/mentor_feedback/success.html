@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="row left-align" id="form-title">
+    <div class="col s12 m8 offset-m2">
+        <div class="card card-panel white">
+            <span class="grey-text text-darken-4">
+                Code Institute - Mentor Session<br>Feedback
+            </span>
+            <br><br>
+            <p>Your response has been recorded.</p>
+            <br>
+            <a href="{% url 'mentor_form' %}" class="blue-text text-darken-2">Submit another response</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
